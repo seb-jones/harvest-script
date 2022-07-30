@@ -58,3 +58,7 @@ This outputs all Harvest Tasks that you have permission to access, along with th
 ```sh
 hvls | sort | grep -i unproductive
 ```
+
+## Licence
+
+> This code is Copyrighted in U.K., under The Unlicense, for a period of 28 years, and anybody caught usin' it without our permission, will be mighty good friends of ourn, cause we don't give a dern. Edit it. run it. hack it. Redistribute it. Yodel it. We wrote it, that's all we wanted to do.
