@@ -12,13 +12,21 @@ export notes="$3"
 function main () {
     entry_id=$(get_first_timesheet_entry_id_matching_input "$project_id" "$task_id" "$notes")
 
-    started_timer_filter='.message // { client: .client.name, project: .project.name, task: .task.name, notes: .notes, hours: .hours }'
-
     if [[ -n "$entry_id" ]]; then
-        restart_timesheet_entry "$entry_id" | jq --raw-output "$started_timer_filter"
+        restart_timesheet_entry "$entry_id" | output_error_or_updated_timesheet_entry
     else
-        create_timesheet_entry | jq --raw-output "$started_timer_filter"
+        create_timesheet_entry | output_error_or_updated_timesheet_entry
     fi
+}
+
+function output_error_or_updated_timesheet_entry() {
+    jq --raw-output '.message // {
+        client: .client.name,
+        project: .project.name,
+        task: .task.name,
+        notes: .notes,
+        hours: .hours
+    }'
 }
 
 # parameters: $1 = project id, $2 = $task id, $3 = notes
