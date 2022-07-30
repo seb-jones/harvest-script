@@ -40,3 +40,15 @@ hv project_id task_id [notes]
 ```
 
 Starts a timer on the current day for the given `project_id` and `task_id`, optionally with `notes`. If a timesheet entry already exists on the current day with identical `project_id`, `task_id` and `notes`, then the timer for that entry is resumed instead.
+
+To get the `project_id` and `task_id`, you can use the following command that is also included in this repo:
+
+```
+hvls
+```
+
+This outputs all Harvest projects that you have permission to access as a stream of tab-separated columns. The first column is the Client name, the second column is the Project name and ID, and the third column is the Task name ID. One row is printed per task. I recommend piping the output of this into `sort` and `grep` to filter the project or task you are looking for, for instance:
+
+```sh
+hvls | sort | grep Unproductive
+```
