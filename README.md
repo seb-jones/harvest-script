@@ -61,4 +61,4 @@ hvls | sort | grep -i unproductive
 
 ## Licence
 
-> This code is Copyrighted in U.K., under The Unlicense, for a period of 28 years, and anybody caught usin' it without our permission, will be mighty good friends of ourn, cause we don't give a dern. Edit it. run it. hack it. Redistribute it. Yodel it. We wrote it, that's all we wanted to do.
+> This code is Copyrighted in U.K., under The Unlicense, for a period of 28 years, and anybody caught usin' it without our permission, will be mighty good friends of ourn, cause we don't give a dern. Edit it. Use it. Hack it. Redistribute it. Yodel it. We wrote it, that's all we wanted to do.
