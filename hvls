@@ -12,7 +12,7 @@ function main () {
             jq --raw-output '
                 .project_assignments[] | 
                 { client, project, task: (.task_assignments[] | .task) } |
-                "\(.client.name)\t\(.project.name) (\(.project.id))\t\(.task.name) (\(.task.id))\n"
+                "\(.client.name)\t\(.project.name) (\(.project.id))\t\(.task.name) (\(.task.id))"
             '
 
         page=$(echo "$project_assignments" | jq '.next_page')
