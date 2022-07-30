@@ -19,8 +19,8 @@ function output_error_or_updated_timesheet_entry() {
         client: .client.name,
         project: .project.name,
         task: .task.name,
-        notes: .notes,
-        hours: .hours
+        notes,
+        hours
     }'
 }
 
