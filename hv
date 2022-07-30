@@ -4,18 +4,13 @@
 export today=$(date -Idate)
 export api_base_url='https://api.harvestapp.com/api/v2'
 
-# Input
-export project_id="$1"
-export task_id="$2"
-export notes="$3"
-
 function main () {
-    entry_id=$(get_first_timesheet_entry_id_matching_input "$project_id" "$task_id" "$notes")
+    entry_id=$(get_first_timesheet_entry_id_matching_input "$@")
 
     if [[ -n "$entry_id" ]]; then
         restart_timesheet_entry "$entry_id" | output_error_or_updated_timesheet_entry
     else
-        create_timesheet_entry | output_error_or_updated_timesheet_entry
+        create_timesheet_entry "$@" | output_error_or_updated_timesheet_entry
     fi
 }
 
@@ -44,15 +39,16 @@ function restart_timesheet_entry() {
     harvest_api_request -X PATCH "$api_base_url/time_entries/$1/restart"
 }
 
+# parameters: $1 = project id, $2 = $task id, $3 = notes
 function create_timesheet_entry() {
     data=$(cat <<-JSON
         {
             "user_id": $HARVEST_USER_ID,
-            "project_id": $project_id,
-            "task_id": $task_id,
+            "project_id": $1,
+            "task_id": $2,
             "spent_date": "$today",
             "hours": 0,
-            "notes": "$notes"
+            "notes": "$3"
         }
 JSON
     )
@@ -71,4 +67,4 @@ function harvest_api_request() {
          "$@"
 }
 
-main
+main "$@"
