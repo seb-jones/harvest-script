@@ -13,6 +13,7 @@ function main () {
     fi
 }
 
+# expects input from stdin
 function output_error_or_updated_timesheet_entry() {
     jq --raw-output '.message // {
         client: .client.name,
