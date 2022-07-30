@@ -19,7 +19,7 @@ Ensure the script file has execute permissions:
 chmod u+x ./hv
 ```
 
-`export` the following variables from your `.bashrc` (or the relevant file if using another shell)
+`export` the following variables from your `.bashrc` (or the relevant configuration file if using another shell) so that they can be accessed by the script.
 
 ```sh
 HARVEST_ACCOUNT_ID='xxx'
