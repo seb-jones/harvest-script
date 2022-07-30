@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Globals
 export today=$(date -Idate)
 export api_base_url='https://api.harvestapp.com/api/v2'
 
