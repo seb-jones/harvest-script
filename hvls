@@ -1,0 +1,33 @@
+#!/bin/bash
+
+export api_base_url='https://api.harvestapp.com/api/v2'
+
+function main () {
+    page=1
+
+    while : ; do
+        project_assignments=$(harvest_api_request "$api_base_url/users/$HARVEST_USER_ID/project_assignments?page=$page")
+
+        echo "$project_assignments" | \
+            jq --raw-output '
+                .project_assignments[] | 
+                { client, project, task: (.task_assignments[] | .task) } |
+                "\(.client.name)\t\(.project.name) (\(.project.id))\t\(.task.name) (\(.task.id))\n"
+            '
+
+        page=$(echo "$project_assignments" | jq '.next_page')
+
+        # Continue loop only if there are more pages
+        [[ "$page" != 'null' ]] || break
+    done
+}
+
+function harvest_api_request() {
+    curl --no-progress-meter \
+         -H "Harvest-Account-ID: $HARVEST_ACCOUNT_ID" \
+         -H "Authorization: Bearer $HARVEST_API_TOKEN" \
+         -H "User-Agent: Seb's Harvest Script" \
+         "$@"
+}
+
+main "$@"

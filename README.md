@@ -13,10 +13,10 @@ Clone this repo and `cd` into it:
 git clone https://github.com/seb-jones/harvest-script.git && cd harvest-script
 ```
 
-Ensure the script file has execute permissions:
+Ensure the script files have execute permissions:
 
 ```sh
-chmod u+x ./hv
+chmod u+x ./hv*
 ```
 
 `export` the following variables from your `.bashrc` (or the relevant configuration file if using another shell) so that they can be accessed by the script.
