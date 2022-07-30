@@ -22,9 +22,9 @@ chmod u+x ./hv*
 `export` the following variables from your `.bashrc` (or the relevant configuration file if using another shell) so that they can be accessed by the script.
 
 ```sh
-HARVEST_ACCOUNT_ID='...'
-HARVEST_API_TOKEN='...'
-HARVEST_USER_ID='...'
+export HARVEST_ACCOUNT_ID='...'
+export HARVEST_API_TOKEN='...'
+export HARVEST_USER_ID='...'
 ```
 
 `HARVEST_ACCOUNT_ID` and `HARVEST_API_TOKEN` are obtained by going to the [Harvest Developers](https://id.getharvest.com/developers) page and creating a personal access token.
