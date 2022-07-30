@@ -41,6 +41,12 @@ hv project_id task_id [notes]
 
 Starts a timer on the current day for the given `project_id` and `task_id`, optionally with `notes`. If a timesheet entry already exists on the current day with identical `project_id`, `task_id` and `notes`, then the timer for that entry is resumed instead.
 
+The recommended usage of this command is to set up aliases for tasks you do repeatedly, for example:
+
+```
+alias coffee="hv 'internal_project_id' 'unproductive_task_id' 'Making Coffee'"
+```
+
 To get the `project_id` and `task_id`, you can use the following command that is also included in this repo:
 
 ```
