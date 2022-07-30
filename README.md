@@ -5,6 +5,32 @@ Small BASH script that (re)starts Harvest timers on today's timesheet.
 - [jq](https://stedolan.github.io/jq/)
 - [curl](https://curl.se/)
 
+## Installation
+
+Clone this repo and `cd` into it:
+
+```sh
+git clone https://github.com/seb-jones/harvest-script.git && cd harvest-script
+```
+
+Ensure the script file has execute permissions:
+
+```sh
+chmod u+x ./hv
+```
+
+`export` the following variables from your `.bashrc` (or the relevant file if using another shell)
+
+```sh
+HARVEST_ACCOUNT_ID='xxx'
+HARVEST_API_TOKEN='xxx'
+HARVEST_USER_ID='xxx'
+```
+
+`HARVEST_ACCOUNT_ID` and `HARVEST_API_TOKEN` are obtained by going to the [Harvest Developers](https://id.getharvest.com/developers) page and creating a personal access token.
+
+Your `HARVEST_USER_ID` can be found by going to 'My profile' in Harvest and looking at the URL in the address bar. For instance if the URL was `/people/123456/edit` then your User ID is `123456`.
+
 ## Usage
 
 ```
