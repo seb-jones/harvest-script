@@ -31,6 +31,8 @@ HARVEST_USER_ID='xxx'
 
 Your `HARVEST_USER_ID` can be found by going to 'My profile' in Harvest and looking at the URL in the address bar. For instance if the URL was `/people/123456/edit` then your User ID is `123456`.
 
+You will probably also want to add the directory to your `PATH` so that you can run the script from anywhere.
+
 ## Usage
 
 ```
