@@ -53,8 +53,8 @@ To get the `project_id` and `task_id`, you can use the following command that is
 hvls
 ```
 
-This outputs all Harvest Tasks that you have permission to access, along with their Client and Project, as a stream of rows with tab-separated columns. The first column is the Client name, the second column is the Project name and ID, and the third column is the Task name ID. One row is printed per task. I recommend piping the output of this into `sort` and `grep` to filter the project or task you are looking for, for instance:
+This outputs all Harvest Tasks that you have permission to access, along with their Client and Project, as a stream of rows with tab-separated columns. The first column is the Client name, the second column is the Project name and ID, and the third column is the Task name ID. One row is printed per task. I recommend piping the output of this into `sort` and `grep` or `less` to filter the project or task you are looking for, for instance:
 
 ```sh
-hvls | sort | grep Unproductive
+hvls | sort | grep -i unproductive
 ```
