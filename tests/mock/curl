@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ "$@" =~ -X\ POST ]]; then
+    cat "$(pwd)/tests/mock/responses/POST/time_entries.json"
+else
+    cat "$(pwd)/tests/mock/responses/GET/time_entries.json"
+fi

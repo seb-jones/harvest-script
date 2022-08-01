@@ -1,0 +1,23 @@
+#!/bin/bash
+
+current_working_directory=$(pwd)
+
+export PATH="$current_working_directory/tests/mock:$current_working_directory:$PATH"
+
+expectedResponse=$(cat << JSON
+{
+  "client": "ABC Corp",
+  "project": "Marketing Website",
+  "task": "Graphic Design",
+  "notes": null,
+  "hours": 0
+}
+JSON
+)
+
+response=$(hv 14307913 8083365)
+
+if [[ "$response" != "$expectedResponse" ]]; then
+    echo "FAILED"
+    exit 1
+fi
