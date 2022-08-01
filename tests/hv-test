@@ -17,7 +17,9 @@ JSON
 
 response=$(hv 14307913 8083365)
 
-if [[ "$response" != "$expectedResponse" ]]; then
+if [[ "$response" == "$expectedResponse" ]]; then
     echo "FAILED"
     exit 1
 fi
+
+echo "PASSED"
